@@ -46,7 +46,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "\n________________________________________________\n" +
+        return "\n___________\n" +
                 "Category id: "+ id +
                 "\n category name: " + name;
     }

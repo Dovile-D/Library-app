@@ -110,7 +110,7 @@ public class Book {
     @Override
     public String toString() {
         return "\n__________________________________________________\n" +
-                "BOOK id: "  + id +
+                "BOOK id: " + id +
                 "\ntitle: " + title + '\'' +
                 "\ndescription: " + description + '\'' +
                 "\nisbn: " + isbn +

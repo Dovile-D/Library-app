@@ -58,7 +58,7 @@ public class UserDAO {
         session.beginTransaction();
         Object user = session.createQuery("select a from User a where a.name = '" + name + "'").getSingleResult();
         session.getTransaction().commit();
-        return (User)user;
+        return (User) user;
     }
 
     public static User searchById(int id) {
