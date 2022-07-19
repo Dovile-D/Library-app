@@ -64,4 +64,13 @@ public class BookDAO {
 
         return books;
     }
+
+    public static List<Book> searchAvailableBooks() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        List<Book> books = null;
+        books = session.createQuery("FROM Book e where e.reservation = null").list();
+
+        return books;
+    }
 }

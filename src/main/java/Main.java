@@ -225,7 +225,7 @@ public class Main {
             chooseOperation = scan.next();
             if (chooseOperation.equals("1")) {
                 System.out.println("Chose a book id from the list below:\n");
-                System.out.println(bookDAO.searchAll());
+                System.out.println(bookDAO.searchAvailableBooks());
                 pickedBookId = scan.nextInt();
                 pickedBook = BookDAO.searchById(pickedBookId);
                 currentUser = UserDAO.searchById(userId);
