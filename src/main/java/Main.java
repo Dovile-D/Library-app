@@ -141,8 +141,9 @@ public class Main {
                     System.out.println("Enter the ID of the book to delete:");
                     bookDeleteId = scan.nextInt();
                     bookDao.deleteById(bookDeleteId);
+                    System.out.println("The book is deleted");
                 } else if (bookOperation.contains("3")) {
-                    bookDao.searchAll();
+                    System.out.println(bookDao.searchAll());
                     System.out.println("\nBooks currently reserved are not shown!\n");
                     System.out.println("Enter id of the book to edit:\n");
                     bookUpdateId = scan.nextInt();
@@ -163,7 +164,6 @@ public class Main {
                     System.out.println(categoryDao.searchAll());
                     bookCategoryUpdateId = scan.nextInt();
                     newCategory = categoryDao.searchById(bookCategoryUpdateId);
-                    System.out.println("Adding the book!");
 //                        ________________________________________________
 
                     Book updatedBook = new Book(bookUpdateId, newTitle, newDescription, newIsbn, newPhoto,
@@ -192,7 +192,7 @@ public class Main {
                         categoryDeleteId = scan.nextInt();
                         categoryDao.deleteById(categoryDeleteId);
                     } else if (categoryOperation.equals("3")) {
-                        categoryDao.searchAll();
+                        System.out.println(categoryDao.searchAll());
                         System.out.println("Enter id of the category to edit:\n");
                         categoryUpdateId = scan.nextInt();
                         System.out.println("Enter new name of the category:\n");

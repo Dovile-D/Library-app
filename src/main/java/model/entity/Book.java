@@ -108,13 +108,13 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book" +
-                "id: " + id +
-                "title: " + title + '\'' +
-                "description: " + description + '\'' +
-                "isbn: " + isbn +
-                "photo: " + photo + '\'' +
-                "numberOfPages: " + numberOfPages +
-                "category: " + category;
+        return "\n__________________________________________________\n" +
+                "BOOK id: "  + id +
+                "\ntitle: " + title + '\'' +
+                "\ndescription: " + description + '\'' +
+                "\nisbn: " + isbn +
+                "\nphoto: " + photo + '\'' +
+                "\nnumber of pages: " + numberOfPages +
+                "\ncategory: " + category;
     }
 }

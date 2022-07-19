@@ -59,7 +59,7 @@ public class CategoryDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         List<Category> categories = null;
-        categories = session.createQuery("FROM User").list();
+        categories = session.createQuery("FROM Category").list();
 
         return categories;
     }

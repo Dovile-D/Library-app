@@ -60,7 +60,7 @@ public class BookDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         List<Book> books = null;
-        books = session.createQuery("FROM User").list();
+        books = session.createQuery("FROM Book").list();
 
         return books;
     }
