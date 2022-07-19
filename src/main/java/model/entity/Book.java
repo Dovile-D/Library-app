@@ -21,10 +21,11 @@ public class Book {
     @Column(name = "pages")
     private int numberOfPages;
     @ManyToOne
-    @JoinColumn(name = "categories")
+    @JoinColumn(name = "category_id")
     private Category category;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    private List<Reservation> reservations;
+    @OneToOne
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
 
     public Book(int id, String title, String description, String isbn, String photo, int numberOfPages,
                 Category category) {

@@ -19,16 +19,17 @@ public class User {
     private boolean isAdmin;
     @Column(name = "password")
     private String password;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    private List<Reservation> reservations;
+    @OneToOne
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
 
-    public User(int id, String name, String email, boolean isAdmin, String password, List<Reservation> reservations) {
+    public User(int id, String name, String email, boolean isAdmin, String password, Reservation reservation) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.isAdmin = isAdmin;
         this.password = password;
-        this.reservations = reservations;
+        this.reservation = reservation;
     }
 
     public User(String name, String email, boolean isAdmin, String password) {
@@ -85,12 +86,12 @@ public class User {
         this.password = password;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public Reservation getReservations() {
+        return reservation;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservations(Reservation reservations) {
+        this.reservation = reservation;
     }
 
     @Override

@@ -1,13 +1,11 @@
 package model.dao;
 
-import model.entity.Book;
-import model.entity.Category;
+
 import model.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.BCryptPassword;
 import utils.HibernateUtil;
-import org.hibernate.Session;
 
 public class UserDAO {
 
@@ -15,18 +13,22 @@ public class UserDAO {
     }
 
     public void register(String regUsername, String regEmail, boolean isAdmin, String regPassword) {
+        Transaction transaction;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        transaction = session.beginTransaction();
         String password = BCryptPassword.hashPassword(regPassword);
         User user = new User(regUsername, regEmail, isAdmin, password);
         session.save(user);
-        session.getTransaction().commit();
+        transaction.commit();
+
+//        session.getTransaction().commit();
         System.out.println("Register successful!");
     }
 
     public boolean login(String logUsername, String logPassword) {
+        Transaction transaction = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        transaction = session.beginTransaction();
         User findUserFDB = this.findUserByUsername(logUsername);
         session.getTransaction().commit();
         if (logUsername.equals(findUserFDB.getName())) {
